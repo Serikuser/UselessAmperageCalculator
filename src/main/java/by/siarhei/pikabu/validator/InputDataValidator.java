@@ -7,8 +7,8 @@ public class InputDataValidator {
     private static final String REGEX_NON_NUMERIC = "[^\\d. +-]+";
 
     // TODO: 04.04.2020 need more validation cases
-    public boolean validate(String diameter, String length) {
-        return isNumeric(diameter) && isNumeric(length);
+    public boolean validate(String diameter, String length, String inputAmper) {
+        return isNumeric(diameter) && isNumeric(length) && isNumeric(inputAmper);
     }
 
     private boolean isNumeric(String value) {

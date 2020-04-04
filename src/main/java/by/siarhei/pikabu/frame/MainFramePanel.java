@@ -14,16 +14,18 @@ public class MainFramePanel extends JPanel {
     private JTextField inputLengthField;
     private JTextField inputDiameterField;
     private JTextField outputResultField;
+    private JTextField inputAmperField;
     private JTextArea resultHolderFiled;
     private JLabel diameterLabel;
     private JLabel lengthLabel;
+    private JLabel amperLabel;
     private JScrollPane scroll;
 
     public MainFramePanel() {
         setLayout(null);
         init();
         buildComponents();
-        layoutBuild(calculateButton, inputDiameterField, inputLengthField, outputResultField, diameterLabel, lengthLabel,scroll);
+        layoutBuild(calculateButton, inputDiameterField, inputLengthField, outputResultField, diameterLabel, lengthLabel, inputAmperField, amperLabel, scroll);
     }
 
     private void layoutBuild(Component... components) {
@@ -37,11 +39,13 @@ public class MainFramePanel extends JPanel {
         calculateButton = new JButton();
         inputLengthField = new JTextField();
         inputDiameterField = new JTextField();
+        inputAmperField = new JTextField();
         outputResultField = new JTextField();
         diameterLabel = new JLabel();
         lengthLabel = new JLabel();
+        amperLabel = new JLabel();
         resultHolderFiled = new JTextArea();
-        calculateButtonActionListener = new CalculateButtonActionListener(inputLengthField, inputDiameterField, outputResultField, resultHolderFiled);
+        calculateButtonActionListener = new CalculateButtonActionListener(inputLengthField, inputDiameterField, outputResultField, resultHolderFiled, inputAmperField);
         scroll = new JScrollPane(resultHolderFiled);
     }
 
@@ -55,5 +59,7 @@ public class MainFramePanel extends JPanel {
         builder.buildLengthLabel(lengthLabel);
         builder.buildResultHolderTextArea(resultHolderFiled);
         builder.buildResultHolderScrollBar(scroll);
+        builder.buildInputAmperField(inputAmperField);
+        builder.buildAmperLabel(amperLabel);
     }
 }

@@ -4,8 +4,6 @@ import javax.swing.*;
 import java.awt.*;
 
 public class AppMainFrameInitializer extends JFrame {
-
-
     private static final String ICON_LABEL = "icon";
     private static final String IMAGES_FOLDER_NAME = "/images/";
     private static final String EXPANSION_PNG = ".png";
