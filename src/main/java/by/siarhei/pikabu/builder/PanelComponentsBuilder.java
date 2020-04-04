@@ -52,4 +52,16 @@ public class PanelComponentsBuilder {
         lengthLabel.setText(LENGTH_LABEL);
         lengthLabel.setBounds(10, 10, 100, 40);
     }
+
+    public void buildResultHolderTextArea(JTextArea resultHolderFiled) {
+        resultHolderFiled.setVisible(true);
+        resultHolderFiled.setEditable(false);
+        resultHolderFiled.setBounds(110, 210, 430, 200);
+        resultHolderFiled.setFont(font);
+    }
+
+    public void buildResultHolderScrollBar(JScrollPane scroll) {
+        scroll.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
+        scroll.setBounds(110, 210, 430, 200);
+    }
 }

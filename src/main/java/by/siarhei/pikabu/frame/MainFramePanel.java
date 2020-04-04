@@ -2,9 +2,6 @@ package by.siarhei.pikabu.frame;
 
 import by.siarhei.pikabu.builder.PanelComponentsBuilder;
 import by.siarhei.pikabu.listener.CalculateButtonActionListener;
-import by.siarhei.pikabu.math.AmperageCalculator;
-import by.siarhei.pikabu.math.BaseCalculator;
-import by.siarhei.pikabu.validator.InputDataValidator;
 
 import javax.swing.*;
 import java.awt.*;
@@ -12,21 +9,21 @@ import java.awt.event.ActionListener;
 
 public class MainFramePanel extends JPanel {
     private PanelComponentsBuilder builder;
-    private InputDataValidator validator;
-    private BaseCalculator calculator;
     private ActionListener calculateButtonActionListener;
     private JButton calculateButton;
     private JTextField inputLengthField;
     private JTextField inputDiameterField;
     private JTextField outputResultField;
+    private JTextArea resultHolderFiled;
     private JLabel diameterLabel;
     private JLabel lengthLabel;
+    private JScrollPane scroll;
 
     public MainFramePanel() {
         setLayout(null);
         init();
         buildComponents();
-        layoutBuild(calculateButton, inputDiameterField, inputLengthField, outputResultField, diameterLabel, lengthLabel);
+        layoutBuild(calculateButton, inputDiameterField, inputLengthField, outputResultField, diameterLabel, lengthLabel,scroll);
     }
 
     private void layoutBuild(Component... components) {
@@ -36,8 +33,6 @@ public class MainFramePanel extends JPanel {
     }
 
     private void init() {
-        validator = new InputDataValidator();
-        calculator = new AmperageCalculator();
         builder = new PanelComponentsBuilder();
         calculateButton = new JButton();
         inputLengthField = new JTextField();
@@ -45,7 +40,9 @@ public class MainFramePanel extends JPanel {
         outputResultField = new JTextField();
         diameterLabel = new JLabel();
         lengthLabel = new JLabel();
-        calculateButtonActionListener = new CalculateButtonActionListener(inputLengthField, inputDiameterField, outputResultField);
+        resultHolderFiled = new JTextArea();
+        calculateButtonActionListener = new CalculateButtonActionListener(inputLengthField, inputDiameterField, outputResultField, resultHolderFiled);
+        scroll = new JScrollPane(resultHolderFiled);
     }
 
     private void buildComponents() {
@@ -56,5 +53,7 @@ public class MainFramePanel extends JPanel {
         builder.buildOutputResultField(outputResultField);
         builder.buildDiameterLabel(diameterLabel);
         builder.buildLengthLabel(lengthLabel);
+        builder.buildResultHolderTextArea(resultHolderFiled);
+        builder.buildResultHolderScrollBar(scroll);
     }
 }
