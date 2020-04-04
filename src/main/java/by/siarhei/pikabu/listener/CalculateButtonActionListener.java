@@ -50,7 +50,7 @@ public class CalculateButtonActionListener implements ActionListener {
         if (validator.validate(inputDiameter, inputLength, inputAmper)) {
             double diameter = Double.parseDouble(inputDiameter);
             double length = Double.parseDouble(inputLength);
-            int amper = Integer.parseInt(inputAmper);
+            double amper = Double.parseDouble(inputAmper);
             if (amper < 50 || amper > 60) {
                 setDefaultAmberValue();
                 amper = 50;
@@ -61,7 +61,7 @@ public class CalculateButtonActionListener implements ActionListener {
         }
     }
 
-    private void setOutputDataToFrames(double diameter, double length, int amper) {
+    private void setOutputDataToFrames(double diameter, double length, double amper) {
         String result = new DecimalFormat(DOUBLE_OUTPUT_FORMAT).format(calculator.calculate(diameter, length, amper));
         outputResultField.setText(result + AMPERAGE_LABEL);
         resultsList.add(String.format(RESULT_TEXT, diameter, length, amper, result));

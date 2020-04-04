@@ -14,6 +14,6 @@ public class InputDataValidator {
     private boolean isNumeric(String value) {
         Pattern pattern = Pattern.compile(REGEX_NON_NUMERIC);
         Matcher matcher = pattern.matcher(value);
-        return !value.isBlank() && !matcher.find();
+        return !value.isEmpty() && !matcher.find();
     }
 }
